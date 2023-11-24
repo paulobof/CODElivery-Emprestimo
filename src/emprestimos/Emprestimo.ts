@@ -1,22 +1,18 @@
-abstract class Emprestimo {
+export default abstract class Emprestimo {
+  constructor(
+    protected nome: string,
+    protected idade: number,
+    protected valor: number,
+    protected numParcelas: number,
+    protected valorParcela: number,
+    protected rendaMensal: number,
+    protected possuiHabilitacao?: boolean,
+    protected matriculadoInstituicaoSuperior?: boolean
+  ) {}
 
-    constructor(
-      protected nome: string,
-      protected idade: number,
-      protected valor: number,
-      protected numParcelas: number,
-      protected rendaMensal: number
-    ) {}
-  
-    abstract verificarAprovacao(): boolean;
-  
-    toString(): string {
-      return `${this.nome} [${this.verificarAprovacao() ? 'APROVADO' : 'REPROVADO'}]`;
-    }
+  abstract verificarAprovacao(): boolean;
 
-    getNome() {
-      return this.nome
-    }
+  getNome(): string {
+    return this.nome;
   }
-  
-  export default Emprestimo;
+}

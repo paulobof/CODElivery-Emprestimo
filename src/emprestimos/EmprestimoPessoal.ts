@@ -1,9 +1,11 @@
 import Emprestimo from './Emprestimo';
 
-class EmprestimoPessoal extends Emprestimo {
+export default class EmprestimoPessoal extends Emprestimo {
   verificarAprovacao(): boolean {
-    return this.idade >= 18 && this.rendaMensal > 2500;
+    return (
+      this.idade >= 18 &&
+      this.valor === this.numParcelas * this.valorParcela &&
+      this.rendaMensal > 2500
+    );
   }
 }
-
-export default EmprestimoPessoal;
